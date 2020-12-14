@@ -62,6 +62,7 @@ Partial Class Login
         '
         Me.inputPassword.Location = New System.Drawing.Point(338, 199)
         Me.inputPassword.Name = "inputPassword"
+        Me.inputPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.inputPassword.Size = New System.Drawing.Size(100, 20)
         Me.inputPassword.TabIndex = 3
         '
