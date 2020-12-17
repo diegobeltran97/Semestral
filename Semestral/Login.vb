@@ -1,4 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Security
+Imports System.Security.Cryptography
+Imports System.IO
+Imports System.Runtime.InteropServices
+Imports System.Text.RegularExpressions
+Imports System.Text
 Public Class Login
     Public dbconn As New MySqlConnection
     Public sql As String
@@ -116,4 +122,13 @@ Public Class Login
         Return plainText
     End Function
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
+        HomeUser.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        HomeDoctor.Show()
+    End Sub
 End Class
