@@ -25,7 +25,9 @@ Partial Class HomeDoctor
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -45,6 +47,7 @@ Partial Class HomeDoctor
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.ListBox1)
         Me.TabPage1.Location = New System.Drawing.Point(124, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -63,6 +66,14 @@ Partial Class HomeDoctor
         Me.TabPage2.Text = "Pacientes Alert"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(16, 18)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(597, 316)
+        Me.ListBox1.TabIndex = 0
+        '
         'HomeDoctor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -72,6 +83,7 @@ Partial Class HomeDoctor
         Me.Name = "HomeDoctor"
         Me.Text = "HomeDoctor"
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -79,4 +91,5 @@ Partial Class HomeDoctor
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents ListBox1 As ListBox
 End Class

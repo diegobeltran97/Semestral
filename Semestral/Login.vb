@@ -14,7 +14,7 @@ Public Class Login
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
-        dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
+        dbconn = New MySqlConnection("server=localhost;user=admin;password=123456;database=clinica;")
 
         Try
             dbconn.Open()

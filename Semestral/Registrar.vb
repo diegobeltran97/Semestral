@@ -13,7 +13,7 @@ Public Class Registrar
 
 
     Private Sub Registrar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
+        dbconn = New MySqlConnection("server=localhost;user=admin;password=123456;database=clinica;")
 
         Try
             dbconn.Open()
