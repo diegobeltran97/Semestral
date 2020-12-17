@@ -11,7 +11,7 @@ Public Class HomeDoctor
     Public dbcomm As New MySqlCommand
     Public dbread As MySqlDataReader
     Private Sub HomeDoctor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconn = New MySqlConnection("server=localhost;user=admin;password=123456;database=clinica;")
+        dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
 
         Try
             dbconn.Open()
@@ -27,13 +27,13 @@ Public Class HomeDoctor
     Private Sub MostrarCitas()
 
 
-        sql = "SELECT u.nombre, fecha, hora, motivo FROM `citas` inner join usuario u on u.tipo = 1"
+        sql = "SELECT u.nombre , fecha, hora, motivo FROM `citas` inner join usuario u on u.tipo = 1"
         Try
             dbcomm = New MySqlCommand(sql, dbconn)
             dbread = dbcomm.ExecuteReader()
             While dbread.Read
-                System.Console.WriteLine(dbread("Paciente"))
 
+                ListBox1.Items.Add(dbread("hora"))
 
                 'comboroleUser.Items.Add(dbread("id").ToString().ToUpper() & "." & dbread("Tipo").ToString().ToUpper())'
             End While
