@@ -118,6 +118,7 @@ Partial Class Registrar
         '
         Me.inputPassword.Location = New System.Drawing.Point(158, 270)
         Me.inputPassword.Name = "inputPassword"
+        Me.inputPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.inputPassword.Size = New System.Drawing.Size(121, 20)
         Me.inputPassword.TabIndex = 9
         '

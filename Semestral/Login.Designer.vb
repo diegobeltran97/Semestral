@@ -152,7 +152,6 @@ Partial Class Login
         Me.Cursor = System.Windows.Forms.Cursors.PanSouth
         Me.Name = "Login"
         Me.Text = "Login"
-        Me.TransparencyKey = System.Drawing.Color.Transparent
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
