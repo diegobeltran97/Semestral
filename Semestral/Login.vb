@@ -1,10 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Security
 Imports System.Security.Cryptography
 Imports System.IO
-Imports System.Runtime.InteropServices
-Imports System.Text.RegularExpressions
 Imports System.Text
+Imports GlobalVariables
 Public Class Login
     Public dbconn As New MySqlConnection
     Public sql As String
@@ -25,7 +23,8 @@ Public Class Login
     Private Sub buttonLogin_Click(sender As Object, e As EventArgs) Handles buttonLogin.Click
         Dim email As String = inputEmail.Text
         Dim password As String = inputPassword.Text
-        sql = "SELECT * FROM usuario where email ='" + email + "' and password = '" + password + " ' "
+
+        sql = "SELECT * FROM usuario where email ='" + email + " ' "
 
 
         Try
@@ -33,13 +32,31 @@ Public Class Login
             dbread = dbcomm.ExecuteReader()
 
             If (dbread.HasRows) Then
-
                 While dbread.Read
-                    System.Console.WriteLine(dbread("nombre").ToString())
-                    MessageBox.Show("Login sucess Welcome to Homepage " + dbread("nombre").ToString())
+                    If (Decrypt(dbread("password").ToString()) = password) Then
+                        If (dbread("tipo").ToString() = "1") Then
+                            enterHomeDoctor()
+                            GlobalVariables.userId = dbread("id")
+                            GlobalVariables.userName = dbread("nombre")
+
+
+                        ElseIf (dbread("tipo").ToString() = "2") Then
+                            GlobalVariables.userId = dbread("id")
+                            GlobalVariables.userName = dbread("nombre")
+
+
+                            enterHomeUser()
+                        End If
+
+                        MessageBox.Show("Login sucess Welcome to Homepage " + dbread("nombre").ToString())
+                    Else
+                        MessageBox.Show("Contrasena Incorrecta ")
+                    End If
+
                 End While
+
             Else
-                MessageBox.Show("Incorrect password or email")
+                MessageBox.Show("Incorrect  email")
             End If
         Catch ex As Exception
             MsgBox("Problem loading data: " & ex.Message.ToString)
@@ -131,4 +148,20 @@ Public Class Login
         Me.Hide()
         HomeDoctor.Show()
     End Sub
+
+    Private Sub enterHomeDoctor()
+        Me.Hide()
+        HomeDoctor.Show()
+
+    End Sub
+
+    Private Sub enterHomeUser()
+        Me.Hide()
+        HomeUser.Show()
+
+    End Sub
+
+
+
+
 End Class

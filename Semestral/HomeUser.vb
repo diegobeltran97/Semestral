@@ -1,10 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Security
-Imports System.Security.Cryptography
-Imports System.IO
-Imports System.Runtime.InteropServices
-Imports System.Text.RegularExpressions
-Imports System.Text
+Imports GlobalVariables
 
 Public Class HomeUser
 
@@ -12,13 +7,20 @@ Public Class HomeUser
     Public sql As String
     Public dbcomm As New MySqlCommand
     Public dbread As MySqlDataReader
+    Dim row As String()
     Private Sub HomeUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
+
+
+
+
         Try
             dbconn.Open()
         Catch ex As Exception
             MsgBox("Connection Error: " & ex.Message.ToString)
         End Try
+
+
     End Sub
 
     Private Sub TabControl1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
@@ -56,9 +58,9 @@ Public Class HomeUser
         motivo = motivoCitaText.Text
 
 
-        System.Console.WriteLine(fechaCitaText.Value)
 
-        sql = "INSERT INTO citas(user_id,fecha,hora, motivo ) VALUES('" + "2" + " ', '" + fechaCita + "' , '" + horaCita + " ','" + motivo + "')"
+
+        sql = "INSERT INTO citas(user_id,fecha,hora, motivo ) VALUES('" + GlobalVariables.userId.ToString + " ', '" + fechaCita + "' , '" + horaCita + " ','" + motivo + "')"
 
 
         Try
@@ -77,4 +79,32 @@ Public Class HomeUser
 
 
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+
+    Private Sub TabControl1_Selected(sender As Object, e As System.Windows.Forms.TabControlEventArgs) Handles TabControl1.Selected
+
+        If (e.TabPageIndex.ToString = "1") Then
+            sql = "SELECT fecha , hora , motivo, estado_id FROM citas where user_id = '" + GlobalVariables.userId.ToString + " ' "
+            Try
+                dbcomm = New MySqlCommand(sql, dbconn)
+                dbread = dbcomm.ExecuteReader()
+                While dbread.Read
+
+                    row = New String() {dbread("fecha").ToString(), dbread("hora").ToString(), dbread("motivo").ToString(), dbread("estado_id").ToString()}
+                    System.Console.WriteLine(row)
+                    DataGridView1.Rows.Add(row)
+
+                End While
+            Catch ex As Exception
+                MsgBox("Problem loading data: " & ex.Message.ToString)
+            End Try
+            dbread.Close()
+        End If
+
+    End Sub
+
 End Class
