@@ -9,7 +9,7 @@ Public Class HomeUser
     Public dbread As MySqlDataReader
     Dim row As String()
     Private Sub HomeUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
+        dbconn = New MySqlConnection("server=localhost;user=admin;password=123456;database=clinica;")
 
 
 

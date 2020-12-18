@@ -164,5 +164,35 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\campus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UTP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\UTP2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\clinica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\doctor.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\usu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\celeste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagenes\350-3500412_png-file-svg-icono-de-usuario-png-blanco.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

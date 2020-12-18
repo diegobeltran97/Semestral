@@ -33,61 +33,71 @@ Partial Class Registrar
         Me.inputPassword = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.bregistrer = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(143, 104)
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label1.Location = New System.Drawing.Point(68, 118)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 13)
+        Me.Label1.Size = New System.Drawing.Size(72, 19)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(146, 222)
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.Location = New System.Drawing.Point(71, 222)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(31, 13)
+        Me.Label2.Size = New System.Drawing.Size(53, 19)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "email"
+        Me.Label2.Text = "Email"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(146, 330)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label3.Location = New System.Drawing.Point(71, 330)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(24, 13)
+        Me.Label3.Size = New System.Drawing.Size(44, 19)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "tipo"
+        Me.Label3.Text = "Tipo"
         '
         'comboroleUser
         '
         Me.comboroleUser.AllowDrop = True
         Me.comboroleUser.FormattingEnabled = True
-        Me.comboroleUser.Location = New System.Drawing.Point(233, 327)
+        Me.comboroleUser.Location = New System.Drawing.Point(158, 327)
         Me.comboroleUser.Name = "comboroleUser"
         Me.comboroleUser.Size = New System.Drawing.Size(121, 21)
         Me.comboroleUser.TabIndex = 3
         '
         'inputNombre
         '
-        Me.inputNombre.Location = New System.Drawing.Point(233, 104)
+        Me.inputNombre.Location = New System.Drawing.Point(158, 118)
         Me.inputNombre.Name = "inputNombre"
         Me.inputNombre.Size = New System.Drawing.Size(121, 20)
         Me.inputNombre.TabIndex = 4
         '
         'inputEmail
         '
-        Me.inputEmail.Location = New System.Drawing.Point(233, 222)
+        Me.inputEmail.Location = New System.Drawing.Point(158, 222)
         Me.inputEmail.Name = "inputEmail"
         Me.inputEmail.Size = New System.Drawing.Size(121, 20)
         Me.inputEmail.TabIndex = 5
         '
         'inputApellido
         '
-        Me.inputApellido.Location = New System.Drawing.Point(233, 160)
+        Me.inputApellido.Location = New System.Drawing.Point(158, 174)
         Me.inputApellido.Name = "inputApellido"
         Me.inputApellido.Size = New System.Drawing.Size(121, 20)
         Me.inputApellido.TabIndex = 7
@@ -95,15 +105,18 @@ Partial Class Registrar
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(143, 160)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label4.Location = New System.Drawing.Point(68, 174)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.Size = New System.Drawing.Size(74, 19)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Apellido"
         '
         'inputPassword
         '
-        Me.inputPassword.Location = New System.Drawing.Point(233, 270)
+        Me.inputPassword.Location = New System.Drawing.Point(158, 270)
         Me.inputPassword.Name = "inputPassword"
         Me.inputPassword.Size = New System.Drawing.Size(121, 20)
         Me.inputPassword.TabIndex = 9
@@ -111,27 +124,45 @@ Partial Class Registrar
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(146, 270)
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Constantia", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label5.Location = New System.Drawing.Point(71, 270)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(53, 13)
+        Me.Label5.Size = New System.Drawing.Size(81, 19)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "Password"
         '
         'bregistrer
         '
-        Me.bregistrer.Location = New System.Drawing.Point(418, 233)
+        Me.bregistrer.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.bregistrer.Location = New System.Drawing.Point(204, 374)
         Me.bregistrer.Name = "bregistrer"
         Me.bregistrer.Size = New System.Drawing.Size(75, 23)
         Me.bregistrer.TabIndex = 10
         Me.bregistrer.Text = "Registrar"
         Me.bregistrer.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.bregistrer.UseVisualStyleBackColor = True
+        Me.bregistrer.UseVisualStyleBackColor = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Copperplate Gothic Bold", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Label6.Location = New System.Drawing.Point(124, 9)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(161, 33)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "Registro"
         '
         'Registrar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.BackgroundImage = Global.Semestral.My.Resources.Resources.clinica
+        Me.ClientSize = New System.Drawing.Size(381, 450)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.bregistrer)
         Me.Controls.Add(Me.inputPassword)
         Me.Controls.Add(Me.Label5)
@@ -162,4 +193,5 @@ Partial Class Registrar
     Friend WithEvents inputPassword As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents bregistrer As Button
+    Friend WithEvents Label6 As Label
 End Class

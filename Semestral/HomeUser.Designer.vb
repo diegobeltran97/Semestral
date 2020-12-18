@@ -41,6 +41,7 @@ Partial Class HomeUser
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.nombrePaciente = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -56,7 +57,7 @@ Partial Class HomeUser
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.TabControl1.ItemSize = New System.Drawing.Size(30, 120)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 74)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 69)
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -204,6 +205,7 @@ Partial Class HomeUser
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.CadetBlue
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -214,23 +216,39 @@ Partial Class HomeUser
         'LogoutToolStripMenuItem
         '
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.LogoutToolStripMenuItem.Text = "Salir"
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(88, 20)
+        Me.LogoutToolStripMenuItem.Text = "Cerrar Sesion"
         '
         'nombrePaciente
         '
         Me.nombrePaciente.AutoSize = True
-        Me.nombrePaciente.Location = New System.Drawing.Point(147, 38)
+        Me.nombrePaciente.BackColor = System.Drawing.Color.Transparent
+        Me.nombrePaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nombrePaciente.Location = New System.Drawing.Point(339, 37)
         Me.nombrePaciente.Name = "nombrePaciente"
-        Me.nombrePaciente.Size = New System.Drawing.Size(39, 13)
+        Me.nombrePaciente.Size = New System.Drawing.Size(86, 29)
         Me.nombrePaciente.TabIndex = 2
         Me.nombrePaciente.Text = "Label5"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(131, 37)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(211, 29)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Bienvenido, Sr(a). "
         '
         'HomeUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.Semestral.My.Resources.Resources.usu
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.nombrePaciente)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -269,4 +287,5 @@ Partial Class HomeUser
     Friend WithEvents phone As DataGridViewTextBoxColumn
     Friend WithEvents TabPage3 As TabPage
     Friend WithEvents nombrePaciente As Label
+    Friend WithEvents Label5 As Label
 End Class
