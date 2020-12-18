@@ -24,10 +24,14 @@ Partial Class HomeDoctor
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.DataGridCitas = New System.Windows.Forms.DataGridView()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.btnActualizar = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        CType(Me.DataGridCitas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -47,7 +51,10 @@ Partial Class HomeDoctor
         '
         'TabPage1
         '
-        Me.TabPage1.Controls.Add(Me.ListBox1)
+        Me.TabPage1.Controls.Add(Me.txtUsuario)
+        Me.TabPage1.Controls.Add(Me.Label1)
+        Me.TabPage1.Controls.Add(Me.btnActualizar)
+        Me.TabPage1.Controls.Add(Me.DataGridCitas)
         Me.TabPage1.Location = New System.Drawing.Point(124, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
@@ -55,6 +62,14 @@ Partial Class HomeDoctor
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Citas"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'DataGridCitas
+        '
+        Me.DataGridCitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridCitas.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridCitas.Name = "DataGridCitas"
+        Me.DataGridCitas.Size = New System.Drawing.Size(588, 273)
+        Me.DataGridCitas.TabIndex = 0
         '
         'TabPage2
         '
@@ -66,13 +81,31 @@ Partial Class HomeDoctor
         Me.TabPage2.Text = "Pacientes Alert"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'ListBox1
+        'btnActualizar
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(16, 18)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(597, 316)
-        Me.ListBox1.TabIndex = 0
+        Me.btnActualizar.Location = New System.Drawing.Point(513, 295)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(75, 23)
+        Me.btnActualizar.TabIndex = 1
+        Me.btnActualizar.Text = "Terminada"
+        Me.btnActualizar.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(335, 301)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Cliente:"
+        '
+        'txtUsuario
+        '
+        Me.txtUsuario.Location = New System.Drawing.Point(404, 298)
+        Me.txtUsuario.Name = "txtUsuario"
+        Me.txtUsuario.ReadOnly = True
+        Me.txtUsuario.Size = New System.Drawing.Size(100, 20)
+        Me.txtUsuario.TabIndex = 6
         '
         'HomeDoctor
         '
@@ -84,6 +117,8 @@ Partial Class HomeDoctor
         Me.Text = "HomeDoctor"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        CType(Me.DataGridCitas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -91,5 +126,8 @@ Partial Class HomeDoctor
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents DataGridCitas As DataGridView
+    Friend WithEvents btnActualizar As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtUsuario As TextBox
 End Class
