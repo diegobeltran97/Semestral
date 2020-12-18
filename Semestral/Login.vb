@@ -35,16 +35,14 @@ Public Class Login
                 While dbread.Read
                     If (Decrypt(dbread("password").ToString()) = password) Then
                         If (dbread("tipo").ToString() = "1") Then
-                            enterHomeDoctor()
+
                             GlobalVariables.userId = dbread("id")
                             GlobalVariables.userName = dbread("nombre")
-
+                            enterHomeDoctor()
 
                         ElseIf (dbread("tipo").ToString() = "2") Then
                             GlobalVariables.userId = dbread("id")
                             GlobalVariables.userName = dbread("nombre")
-
-
                             enterHomeUser()
                         End If
 
@@ -139,12 +137,12 @@ Public Class Login
         Return plainText
     End Function
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Me.Hide()
         HomeUser.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         Me.Hide()
         HomeDoctor.Show()
     End Sub

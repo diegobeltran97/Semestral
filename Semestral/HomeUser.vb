@@ -20,7 +20,21 @@ Public Class HomeUser
             MsgBox("Connection Error: " & ex.Message.ToString)
         End Try
 
+        sql = "SELECT * FROM `citas` where user_id = '" + GlobalVariables.userId.ToString + "' " + "and " + "covid = ' " + "2" + " ' "
+        Try
+            dbcomm = New MySqlCommand(sql, dbconn)
+            dbread = dbcomm.ExecuteReader()
 
+            If (dbread.HasRows) Then
+                MsgBox("Usted tiene covid")
+            End If
+
+        Catch ex As Exception
+            MsgBox("Problem loading data: " & ex.Message.ToString)
+        End Try
+        dbread.Close()
+
+        inicio()
     End Sub
 
     Private Sub TabControl1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
@@ -44,6 +58,9 @@ Public Class HomeUser
         iY = e.Bounds.Top + (e.Bounds.Height - sizeText.Height) / 2
 
         g.DrawString(sText, ctlTab.Font, Brushes.Black, iX, iY)
+    End Sub
+    Private Sub inicio()
+        nombrePaciente.Text = GlobalVariables.userName
     End Sub
 
     Private Sub buttonAddCita_Click(sender As Object, e As EventArgs) Handles buttonAddCita.Click
@@ -86,7 +103,7 @@ Public Class HomeUser
 
 
     Private Sub TabControl1_Selected(sender As Object, e As System.Windows.Forms.TabControlEventArgs) Handles TabControl1.Selected
-
+        DataGridView1.Rows.Clear()
         If (e.TabPageIndex.ToString = "1") Then
             sql = "SELECT fecha , hora , motivo, estado_id FROM citas where user_id = '" + GlobalVariables.userId.ToString + " ' "
             Try
@@ -95,7 +112,7 @@ Public Class HomeUser
                 While dbread.Read
 
                     row = New String() {dbread("fecha").ToString(), dbread("hora").ToString(), dbread("motivo").ToString(), dbread("estado_id").ToString()}
-                    System.Console.WriteLine(row)
+
                     DataGridView1.Rows.Add(row)
 
                 End While
@@ -107,4 +124,10 @@ Public Class HomeUser
 
     End Sub
 
+    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        GlobalVariables.userId = Nothing
+        GlobalVariables.userName = ""
+        Me.Hide()
+        Login.Show()
+    End Sub
 End Class

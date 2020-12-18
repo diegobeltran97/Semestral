@@ -5,6 +5,7 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
 Imports System.Text
+Imports GlobalVariables
 Public Class HomeDoctor
     Public dbconn As New MySqlConnection
     Public sql As String
@@ -32,8 +33,9 @@ Public Class HomeDoctor
     Private Sub MostrarCitas()
         Dim adaptador As MySqlDataAdapter
         Dim datatable As DataTable
-        sql = "SELECT c.id, u.nombre, c.hora, c.motivo, e.nombre as 'Status'FROM citas c inner join usuario u on c.user_id = u.id inner join citas_status e on c.estado_id = e.status_id"
+        sql = "SELECT c.id, u.nombre, c.hora, c.motivo, e.nombre as 'Status' , co.nombre as 'covid'  FROM citas c inner join usuario u on c.user_id = u.id inner join citas_status e on c.estado_id = e.status_id  inner join usuario_covid co on co.id = c.covid"
         'adaptador = New MySqlDataAdapter(sql, dbconn)'
+        nombreDoctor.Text = GlobalVariables.userName
 
 
         Try
@@ -127,9 +129,42 @@ Public Class HomeDoctor
         End Try
 
 
+
+
     End Sub
 
     Private Sub comboroleStatus_SelectedIndexChanged(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub btnCovid_Click(sender As Object, e As EventArgs) Handles btnCovid.Click
+
+
+
+
+        ' sql = "UPDATE `citas` SET `estado_id`= 2  WHERE id='" & Text.txtUsuario & "'"'
+        sql = "UPDATE `citas` SET `covid`= 2  WHERE id='" & usuario & "'"
+
+        Try
+
+
+            dbcomm = New MySqlCommand(sql, dbconn)
+            dbread = dbcomm.ExecuteReader()
+            dbread.Close()
+
+            MsgBox("Estado de la cita actualizado.")
+            MostrarCitas()
+
+
+        Catch ex As Exception
+            MsgBox("Problem with data: " & ex.Message.ToString)
+        End Try
+    End Sub
+
+    Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
+        GlobalVariables.userId = Nothing
+        GlobalVariables.userName = ""
+        Me.Hide()
+        Login.Show()
     End Sub
 End Class

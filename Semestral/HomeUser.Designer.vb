@@ -40,6 +40,7 @@ Partial Class HomeUser
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.nombrePaciente = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -216,11 +217,21 @@ Partial Class HomeUser
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.LogoutToolStripMenuItem.Text = "Salir"
         '
+        'nombrePaciente
+        '
+        Me.nombrePaciente.AutoSize = True
+        Me.nombrePaciente.Location = New System.Drawing.Point(147, 38)
+        Me.nombrePaciente.Name = "nombrePaciente"
+        Me.nombrePaciente.Size = New System.Drawing.Size(39, 13)
+        Me.nombrePaciente.TabIndex = 2
+        Me.nombrePaciente.Text = "Label5"
+        '
         'HomeUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.nombrePaciente)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -257,4 +268,5 @@ Partial Class HomeUser
     Friend WithEvents age As DataGridViewTextBoxColumn
     Friend WithEvents phone As DataGridViewTextBoxColumn
     Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents nombrePaciente As Label
 End Class
