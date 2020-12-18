@@ -10,8 +10,14 @@ Public Class HomeDoctor
     Public sql As String
     Public dbcomm As New MySqlCommand
     Public dbread As MySqlDataReader
+    Public datos As DataSet
+    Dim FilaActual As Integer
+    Dim usuario As Integer
+
     Private Sub HomeDoctor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconn = New MySqlConnection("server=localhost;user=root;password=tecnomysql;database=clinica;")
+        dbconn = New MySqlConnection("server=localhost;user=admin;password=123456;database=clinica;")
+        Dim Status As String
+
 
         Try
             dbconn.Open()
@@ -19,24 +25,38 @@ Public Class HomeDoctor
             MsgBox("Connection Error: " & ex.Message.ToString)
         End Try
 
-        MostrarCitas()
 
-        dbread.Close()
+        MostrarCitas()
     End Sub
 
     Private Sub MostrarCitas()
+        Dim adaptador As MySqlDataAdapter
+        Dim datatable As DataTable
+        sql = "SELECT c.id, u.nombre, c.hora, c.motivo, e.nombre as 'Status'FROM citas c inner join usuario u on c.user_id = u.id inner join citas_status e on c.estado_id = e.status_id"
+        'adaptador = New MySqlDataAdapter(sql, dbconn)'
 
 
-        sql = "SELECT u.nombre , fecha, hora, motivo FROM `citas` inner join usuario u on u.tipo = 1"
         Try
-            dbcomm = New MySqlCommand(sql, dbconn)
-            dbread = dbcomm.ExecuteReader()
-            While dbread.Read
+            'dbcomm = New MySqlCommand(sql, dbconn)'
+            adaptador = New MySqlDataAdapter(sql, dbconn)
+            'dbread = dbcomm.ExecuteReader()'
+            'da.Fill(tbl)
+            '
 
-                ListBox1.Items.Add(dbread("hora"))
+            ' While dbread.Read'
 
-                'comboroleUser.Items.Add(dbread("id").ToString().ToUpper() & "." & dbread("Tipo").ToString().ToUpper())'
-            End While
+            datos = New DataSet
+            adaptador.Fill(datos, "citas")
+                'lista = datos.Tables("usuario").Rows.Count
+
+                'If lista <> 0 Then
+                DataGridCitas.DataSource = datos
+                DataGridCitas.DataMember = "citas"
+
+            'comboroleUser.Items.Add(dbread("id").ToString().ToUpper() & "." & dbread("Tipo").ToString().ToUpper())'
+            ' End While'
+
+
         Catch ex As Exception
             MsgBox("Problem loading data: " & ex.Message.ToString)
         End Try
@@ -68,6 +88,48 @@ Public Class HomeDoctor
     End Sub
 
     Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+    Private Sub DataGridCitas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridCitas.CellContentClick
+
+
+        FilaActual = DataGridCitas.CurrentRow.Index
+        txtUsuario.Text = DataGridCitas.Rows(FilaActual).Cells(0).Value
+        usuario = Convert.ToInt32(txtUsuario.Text)
+
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+
+        Dim adaptador As MySqlDataAdapter
+        Dim datatable As DataTable
+
+
+
+        ' sql = "UPDATE `citas` SET `estado_id`= 2  WHERE id='" & Text.txtUsuario & "'"'
+        sql = "UPDATE `citas` SET `estado_id`= 2  WHERE id='" & usuario & "'"
+
+        Try
+
+
+            dbcomm = New MySqlCommand(sql, dbconn)
+            dbread = dbcomm.ExecuteReader()
+            dbread.Close()
+
+            MsgBox("Estado de la cita actualizado.")
+            MostrarCitas()
+
+
+        Catch ex As Exception
+            MsgBox("Problem with data: " & ex.Message.ToString)
+        End Try
+
+
+    End Sub
+
+    Private Sub comboroleStatus_SelectedIndexChanged(sender As Object, e As EventArgs)
 
     End Sub
 End Class

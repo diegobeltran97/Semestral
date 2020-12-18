@@ -104,7 +104,8 @@ Public Class Registrar
         Return cipherText
     End Function
 
+    Private Sub comboroleUser_SelectedIndexChanged(sender As Object, e As EventArgs) Handles comboroleUser.SelectedIndexChanged
 
-
+    End Sub
 End Class
 

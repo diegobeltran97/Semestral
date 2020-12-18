@@ -77,4 +77,8 @@ Public Class HomeUser
 
 
     End Sub
+
+    Private Sub fechaCitaText_ValueChanged(sender As Object, e As EventArgs) Handles fechaCitaText.ValueChanged
+
+    End Sub
 End Class
